@@ -22,4 +22,4 @@ jobs:
             rm -rf deployment/*
             echo "Move sources to deployment"
             mv repo1 deployment/
-            echo "Finish"
+            echo "Finish" 
