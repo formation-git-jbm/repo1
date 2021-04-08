@@ -14,7 +14,7 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v2
     - name: "Move source"
-      - run: |
+      run: |
           pwd
           echo "List dir"
           ls -la
