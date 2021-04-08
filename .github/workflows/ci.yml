@@ -13,4 +13,13 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        script: ls
+        script: |
+            echo "Go to GitHubAction"
+            cd GitHubAction/
+            echo "Clone repo"
+            git clone https://github.com/formation-git-jbm/repo1.git
+            echo "Clear deployment/*"
+            rm -rf deployment/*
+            echo "Move sources to deployment"
+            mv repo1 deployment/
+            echo "Finish"
