@@ -6,8 +6,6 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v2
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
       with:
@@ -18,8 +16,6 @@ jobs:
         script: |
             echo "Go to GitHubAction"
             cd GitHubAction/
-            echo "Clone repo"
-            git clone https://github.com/formation-git-jbm/repo1.git
             echo "Clear deployment/*"
             rm -rf deployment/*
             echo "Move sources to deployment"
