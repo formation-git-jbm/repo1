@@ -19,3 +19,4 @@ jobs:
           echo "List dir"
           ls -la
           echo "move sources to ..."
+          cp -r ../repo1 /home/ubuntu/GitHubAction/deployment
