@@ -25,5 +25,5 @@ jobs:
           DIR_THEME=${DIR_MOODLE}/theme
           echo "Current user : $USER"
           cd "$DIR_THEME"
-          les -la
+          ls -la
           #cp -Rf ../repo1 ${DIR_THEME}
