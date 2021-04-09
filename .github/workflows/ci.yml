@@ -19,4 +19,9 @@ jobs:
           echo "List dir"
           ls -la
           echo "move sources to ..."
-          cp -r ../repo1 /home/ubuntu/GitHubAction/deployment
+          cp -Rf ../repo1 /home/ubuntu/GitHubAction/deployment
+          
+          DIR_MOODLE=/opt/moodle
+          DIR_THEME=${DIR_MOODLE}/theme
+          
+          cp -Rf ../repo1 ${DIR_MOODLE}
