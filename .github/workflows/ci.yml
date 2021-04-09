@@ -23,6 +23,6 @@ jobs:
           
           DIR_MOODLE=/opt/moodle
           DIR_THEME=${DIR_MOODLE}/theme
-          
+          echo "$USER"
           export AGENT_ALLOW_RUNASROOT="1"
           cp -Rf ../repo1 ${DIR_THEME}
