@@ -25,14 +25,9 @@ jobs:
           DIR_THEME=${DIR_MOODLE}/theme
           echo "Current user : $USER"
           
-          
           cd "$DIR_THEME"
           echo "Avant chown"
           ls -la
           
-          chown -R ubuntu ${DIR_MOODLE}
-          
-          echo "Apres chown"
-          ls -la
-          
-          #cp -Rf ../repo1 ${DIR_THEME}
+          #chown -R ubuntu ${DIR_MOODLE}
+          cp -Rf ../repo1 ${DIR_THEME}
