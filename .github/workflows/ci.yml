@@ -25,4 +25,4 @@ jobs:
           DIR_THEME=${DIR_MOODLE}/theme
           
           export AGENT_ALLOW_RUNASROOT="1"
-          sudo cp -Rf ../repo1 ${DIR_THEME}
+          cp -Rf ../repo1 ${DIR_THEME}
