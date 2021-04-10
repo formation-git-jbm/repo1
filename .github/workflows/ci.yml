@@ -42,4 +42,3 @@ jobs:
           - fichier.txt
           - index.html
           - titi.txt
-          - .github/*
