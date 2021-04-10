@@ -33,6 +33,6 @@ jobs:
         server: ftp.cluster026.hosting.ovh.net
         username: labonneoem
         password: ${{ secrets.ftp_password }}
-        state-name: githubaction/.sync-state.json
+        state-name: www/githubaction/.sync-state.json
         exclude: Git.pdf
           - Git.pptx
