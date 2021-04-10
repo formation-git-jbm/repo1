@@ -34,7 +34,7 @@ jobs:
         username: labonneoem
         password: ${{ secrets.ftp_password }}
         #server-dir: githubaction/
-        local-dir: githubaction/
+        local-dir: /githubaction/
         state-name: ./.sync-state.json
         log-level: verbose
         exclude: Git.pdf
