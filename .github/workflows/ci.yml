@@ -18,14 +18,14 @@ jobs:
           pwd
           echo "List dir"
           ls -la
-          echo "move sources to ..."
-          cp -Rf ../repo1 /home/ubuntu/GitHubAction/deployment
-          
-          DIR_MOODLE=/opt/moodle
-          DIR_THEME=${DIR_MOODLE}/theme
-                    
-          #chown -R ubuntu ${DIR_MOODLE}
-          cp -Rf ../repo1 ${DIR_THEME}
+          #echo "move sources to ..."
+          #cp -Rf ../repo1 /home/ubuntu/GitHubAction/deployment
+          #
+          #DIR_MOODLE=/opt/moodle
+          #DIR_THEME=${DIR_MOODLE}/theme
+          #          
+          ##chown -R ubuntu ${DIR_MOODLE}
+          #cp -Rf ../repo1 ${DIR_THEME}
           
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
