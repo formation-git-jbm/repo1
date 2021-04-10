@@ -36,6 +36,7 @@ jobs:
         #server-dir: ./githubaction/
         #/local-dir: ./githubaction/
         state-name: ./.sync-state.json
+        log-level: verbose
         exclude: Git.pdf
           - Git.pptx
           - fichier.txt
