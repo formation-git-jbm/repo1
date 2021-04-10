@@ -34,7 +34,7 @@ jobs:
         username: ubuntu
         password: ${{ secrets.ftp_password }}
         server-dir: ./home/ubuntu/GitHubAction/FTP/
-        state-name: home/ubuntu/GitHubAction/FTP/.sync-state.json
+        #state-name: home/ubuntu/GitHubAction/FTP/.sync-state.json
         exclude: Git.pdf
           - Git.pptx
           - fichier.txt
