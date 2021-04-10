@@ -33,4 +33,4 @@ jobs:
         server: ftp.cluster026.hosting.ovh.net
         username: labonneoem
         password: ${{ secrets.ftp_password }}
-        local-dir: github-action/
+        local-dir: ./
