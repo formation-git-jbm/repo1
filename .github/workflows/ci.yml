@@ -34,7 +34,7 @@ jobs:
         username: labonneoem
         password: ${{ secrets.ftp_password }}
         server-dir: ./githubaction/
-        state-name: githubaction/.sync-state.json
+        state-name: ./.sync-state.json
         protocol: ftps
         port: 22
         exclude: Git.pdf
