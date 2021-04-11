@@ -28,11 +28,12 @@ jobs:
           #cp -Rf ../repo1 ${DIR_THEME}
           
     - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      
       environment:
         name: test
         url: 'un.ogoula.com'
       run: echo 'Variable definie en env'
-      uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
         server: ${{ secrets.ftp_server }}
         username: ${{ secrets.ftp_user }}
