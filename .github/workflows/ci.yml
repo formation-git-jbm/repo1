@@ -18,7 +18,6 @@ jobs:
           pwd
           echo "List dir"
           ls -la
-          echo ${{ $SECRECTNAME }}
           #echo "move sources to ..."
           #cp -Rf ../repo1 /home/ubuntu/GitHubAction/deployment
           #
@@ -29,6 +28,10 @@ jobs:
           #cp -Rf ../repo1 ${DIR_THEME}
           
     - name: 📂 Sync files
+      environment:
+        name: test
+        url: 'un.ogoula.com'
+      run: echo 'Variable definie en env : $SECRECTNAME'
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
         server: ${{ secrets.ftp_server }}
