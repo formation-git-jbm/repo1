@@ -2,9 +2,9 @@
 name: Nom du workflow
 
 # Trigger
-on:
-  push:
-    branches: [ master ]
+#on:
+#  push:
+#    branches: [ master ]
 
 jobs:
 
