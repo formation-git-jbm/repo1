@@ -4,6 +4,7 @@ on:
   push:
     branches: [ dev ]
   pull_request:
+    types: [closed]
     branches: [ main ]
 
 jobs:
@@ -36,7 +37,7 @@ jobs:
             
   DeployProd:
     name: Deploiement en Prod
-    if: github.event.pull_request.merged == 'true'
+    #if: github.event.pull_request.merged == 'true'
     needs: [Build]
     runs-on: self-hosted
     environment: 
