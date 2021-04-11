@@ -28,7 +28,7 @@ jobs:
           #cp -Rf ../repo1 ${DIR_THEME}
           
     - name: 📂 Sync files
-      envirnment:
+      environment:
         name: test
         url: 'un.ogoula.com'
       run: echo 'Variable definie en env $SECRECTNAME'
