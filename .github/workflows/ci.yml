@@ -71,6 +71,8 @@ jobs:
       name: Prod
       url: 'http://www.myapp.com'
     steps:
+      - name: "PROD"
+        run: echo "IS PROD job"
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
