@@ -1,6 +1,12 @@
 name: CI + CD
 
-on: [workflow_dispatch]
+on:
+  push:
+    branches: [ dev ]
+  pull_request:
+    types: [closed]
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   Build:
