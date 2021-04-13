@@ -52,6 +52,9 @@ jobs:
       name: REC
       url: 'http://test.myapp.com'
     steps:
+      - name: "REMOVE PROD File"
+        run: |
+          rm prod.txt
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
@@ -70,8 +73,10 @@ jobs:
       name: Prod
       url: 'http://www.myapp.com'
     steps:
-      - name: "PROD"
-        run: echo "IS PROD job"
+      - name: "ADD PROD File"
+        run: |
+          touch prod.txt
+          echo "prod file" > prod.txt
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
