@@ -63,7 +63,7 @@ jobs:
   DeployProd:
     name: Deploiement en Prod
     #if: github.event.pull_request.merged == 'true'
-    #if: github.ref == 'main' && github.event_name == 'pull_request' && github.event.action == 'closed'
+    if: github.ref == 'main' && github.event_name == 'pull_request' && github.event.action == 'closed'
     needs: [Build]
     runs-on: self-hosted
     environment: 
