@@ -54,6 +54,7 @@ jobs:
     steps:
       - name: "REMOVE PROD File"
         run: |
+          pwd
           rm -f prod.txt
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
