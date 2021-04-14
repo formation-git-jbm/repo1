@@ -10,7 +10,7 @@ on:
 
 jobs:
   Build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
       
@@ -55,6 +55,7 @@ jobs:
     steps:
       - name: "REMOVE PROD File"
         run: |
+          pwd
           rm -f prod.txt
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0

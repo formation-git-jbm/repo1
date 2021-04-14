@@ -1,0 +1,2 @@
+# Conf self hosted
+https://jessicadeen.com/github-actions-self-hosted-runner/
