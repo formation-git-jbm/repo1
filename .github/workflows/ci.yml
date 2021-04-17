@@ -55,6 +55,7 @@ jobs:
       - name: "REMOVE PROD File"
         run: |
           pwd
+          ls -la
           rm -f prod.txt
       # - name: 📂 Sync files
       #   uses: SamKirkland/FTP-Deploy-Action@4.0.0
@@ -70,7 +71,7 @@ jobs:
           ftp_username: ${{ secrets.ftp_user }}
           ftp_password: ${{ secrets.ftp_password }}
           delete: "true"
-          local_source_dir: "./" #/home/runner/work/repo1/repo1
+          #local_source_dir: "./" #/home/runner/work/repo1/repo1
           dist_target_dir: "githubaction"
             
   DeployProd:
