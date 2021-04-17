@@ -38,5 +38,5 @@ jobs:
           delete: "true"
           local_source_dir: "./" #/home/runner/work/repo1/repo1
           dist_target_dir: "githubaction"
-          exclude: "'^.git*/'"
+          exclude: "'^.git/' '^.github/'"
    
