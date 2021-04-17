@@ -51,5 +51,5 @@ jobs:
           local_source_dir: "./" #/home/runner/work/repo1/repo1
           dist_target_dir: "githubaction"
           exclude: "'^.git/' '^.github/'"
-        run: .github/scripts/synch.sh
+        run: ./.github/scripts/synch.sh
    
