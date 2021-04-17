@@ -1,0 +1,45 @@
+name: CI + CD - PROD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    types: [closed]
+    branches: [ main ]
+
+jobs:
+  
+  DeployRec:
+    name: Deploiement en Prod
+    # if: github.ref == 'main' && github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    environment: 
+      name: PROD
+      url: 'http://www.myapp.com'
+    steps:
+      - name: Checkout files
+        uses: actions/checkout@v2
+
+      - name: "REMOVE PROD File"
+        run: |
+          pwd
+          ls -la
+          rm -f prod.txt
+      # - name: 📂 Sync files
+      #   uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      #   with:
+      #     server: ${{ secrets.ftp_server }}
+      #     username: ${{ secrets.ftp_user }}
+      #     password: ${{ secrets.ftp_password }}
+      #     server-dir: githubaction/ 
+      - name: 📂 Sync files 
+        uses: kevinpainchaud/simple-ftp-deploy-action@v1.2.1
+        with:
+          ftp_host: ${{ secrets.ftp_server }}
+          ftp_username: ${{ secrets.ftp_user }}
+          ftp_password: ${{ secrets.ftp_password }}
+          delete: "true"
+          local_source_dir: "./" #/home/runner/work/repo1/repo1
+          dist_target_dir: "githubaction"
+          exclude: "'^.git*/' '^.github/'"
+   
