@@ -9,7 +9,7 @@ on:
 
 jobs:
   Build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       
@@ -47,7 +47,7 @@ jobs:
     name: Deploiement en Dev / R7 
     if: github.ref == 'refs/heads/dev'
     needs: [Build]
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     environment: 
       name: REC
       url: 'http://test.myapp.com'
@@ -70,7 +70,7 @@ jobs:
           ftp_username: ${{ secrets.ftp_user }}
           ftp_password: ${{ secrets.ftp_password }}
           delete: "true"
-          # local_source_dir: "/"
+          local_source_dir: "/"
           dist_target_dir: "githubaction"
             
   DeployProd:
