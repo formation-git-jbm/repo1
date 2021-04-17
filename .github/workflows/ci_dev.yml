@@ -44,13 +44,13 @@ jobs:
       
       - name: 📂 Custom Sync files 
         with:
-          ftp_host: ${{ secrets.ftp_server }}
-          ftp_username: ${{ secrets.ftp_user }}
-          ftp_password: ${{ secrets.ftp_password }}
-          delete: "true"
-          local_source_dir: "./" #/home/runner/work/repo1/repo1
-          dist_target_dir: "githubaction"
-          exclude: "'^.git/' '^.github/'"
+          FTP_HOST: ${{ secrets.ftp_server }}
+          FTP_USERNAME: ${{ secrets.ftp_user }}
+          FTP_PASSWORD: ${{ secrets.ftp_password }}
+          DELETE: "true"
+          LOCAL_SOURCE_DIR: "./" #/home/runner/work/repo1/repo1
+          DIST_TARGET_DIR: "githubaction"
+          EXCLUDE: "'^.git/' '^.github/'"
         run: |
           echo $INPUTS
           chmod +x ./.github/scripts/synch.sh
