@@ -8,7 +8,7 @@ jobs:
   
   DeployRec:
     name: Deploiement en Dev / R7 
-    if: github.ref == 'refs/heads/dev'
+    # if: github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
     environment: 
       name: REC
@@ -38,4 +38,5 @@ jobs:
           delete: "true"
           local_source_dir: "./" #/home/runner/work/repo1/repo1
           dist_target_dir: "githubaction"
+          exclude: "'^.git*/'"
    
