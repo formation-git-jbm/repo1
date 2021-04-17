@@ -40,6 +40,6 @@ jobs:
           ftp_password: ${{ secrets.ftp_password }}
           delete: "true"
           local_source_dir: "./" #/home/runner/work/repo1/repo1
-          dist_target_dir: "/home/ubuntu/GitHubAction/FTP/"
+          dist_target_dir: "/home/ubuntu/GitHubAction/FTP"
           exclude: "'^.git*/' '^.github/'"
    
