@@ -11,8 +11,8 @@ jobs:
     # if: github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
     environment: 
-      name: REC
-      url: 'http://test.myapp.com'
+      name: PROD
+      url: 'http://test.myapp.com/PROD'
     steps:
       - name: Checkout files
         uses: actions/checkout@v2
@@ -29,8 +29,20 @@ jobs:
       #     username: ${{ secrets.ftp_user }}
       #     password: ${{ secrets.ftp_password }}
       #     server-dir: githubaction/ 
-      - name: 📂 Sync files 
-        uses: kevinpainchaud/simple-ftp-deploy-action@v1.2.1
+
+      # - name: 📂 Sync files 
+      #   uses: kevinpainchaud/simple-ftp-deploy-action@v1.2.1
+      #   with:
+      #     ftp_host: ${{ secrets.ftp_server }}
+      #     ftp_username: ${{ secrets.ftp_user }}
+      #     ftp_password: ${{ secrets.ftp_password }}
+      #     delete: "true"
+      #     local_source_dir: "./" #/home/runner/work/repo1/repo1
+      #     dist_target_dir: "githubaction"
+      #     exclude: "'^.git/' '^.github/'"
+
+      
+      - name: 📂 Custom Sync files 
         with:
           ftp_host: ${{ secrets.ftp_server }}
           ftp_username: ${{ secrets.ftp_user }}
@@ -39,4 +51,6 @@ jobs:
           local_source_dir: "./" #/home/runner/work/repo1/repo1
           dist_target_dir: "githubaction"
           exclude: "'^.git/' '^.github/'"
+      - name: Run manual script
+        run: .github/scripts/synch.sh
    
