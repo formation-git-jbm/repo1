@@ -1,103 +1,103 @@
-name: CI + CD
+# name: CI + CD
 
-on:
-  push:
-    branches: [ dev ]
-  pull_request:
-    types: [closed]
-    branches: [ main ]
+# on:
+#   push:
+#     branches: [ dev ]
+#   pull_request:
+#     types: [closed]
+#     branches: [ main ]
 
-jobs:
-  Build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+# jobs:
+#   Build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
 
-      - name: "📁List dir"
-        run: |
-          pwd
-          ls -la
+#       - name: "📁List dir"
+#         run: |
+#           pwd
+#           ls -la
       
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: Dump job context
-        env:
-          JOB_CONTEXT: ${{ toJSON(job) }}
-        run: echo "$JOB_CONTEXT"
-      - name: Dump steps context
-        env:
-          STEPS_CONTEXT: ${{ toJSON(steps) }}
-        run: echo "$STEPS_CONTEXT"
-      - name: Dump runner context
-        env:
-          RUNNER_CONTEXT: ${{ toJSON(runner) }}
-        run: echo "$RUNNER_CONTEXT"
-      - name: Dump strategy context
-        env:
-          STRATEGY_CONTEXT: ${{ toJSON(strategy) }}
-        run: echo "$STRATEGY_CONTEXT"
-      - name: Dump matrix context
-        env:
-          MATRIX_CONTEXT: ${{ toJSON(matrix) }}
-        run: echo "$MATRIX_CONTEXT"
+#       - name: Dump GitHub context
+#         env:
+#           GITHUB_CONTEXT: ${{ toJSON(github) }}
+#         run: echo "$GITHUB_CONTEXT"
+#       - name: Dump job context
+#         env:
+#           JOB_CONTEXT: ${{ toJSON(job) }}
+#         run: echo "$JOB_CONTEXT"
+#       - name: Dump steps context
+#         env:
+#           STEPS_CONTEXT: ${{ toJSON(steps) }}
+#         run: echo "$STEPS_CONTEXT"
+#       - name: Dump runner context
+#         env:
+#           RUNNER_CONTEXT: ${{ toJSON(runner) }}
+#         run: echo "$RUNNER_CONTEXT"
+#       - name: Dump strategy context
+#         env:
+#           STRATEGY_CONTEXT: ${{ toJSON(strategy) }}
+#         run: echo "$STRATEGY_CONTEXT"
+#       - name: Dump matrix context
+#         env:
+#           MATRIX_CONTEXT: ${{ toJSON(matrix) }}
+#         run: echo "$MATRIX_CONTEXT"
 
-      - name: Compile
-        run: |
-          echo Hello, world!
-          date
+#       - name: Compile
+#         run: |
+#           echo Hello, world!
+#           date
     
-  DeployRec:
-    name: Deploiement en Dev / R7 
-    if: github.ref == 'refs/heads/dev'
-    needs: [Build]
-    runs-on: ubuntu-latest
-    environment: 
-      name: REC
-      url: 'http://test.myapp.com'
-    steps:
-      - name: "REMOVE PROD File"
-        run: |
-          pwd
-          ls -la
-          rm -f prod.txt
-      # - name: 📂 Sync files
-      #   uses: SamKirkland/FTP-Deploy-Action@4.0.0
-      #   with:
-      #     server: ${{ secrets.ftp_server }}
-      #     username: ${{ secrets.ftp_user }}
-      #     password: ${{ secrets.ftp_password }}
-      #     server-dir: githubaction/ 
-      - name: 📂 Sync files 
-        uses: kevinpainchaud/simple-ftp-deploy-action@v1.2.1
-        with:
-          ftp_host: ${{ secrets.ftp_server }}
-          ftp_username: ${{ secrets.ftp_user }}
-          ftp_password: ${{ secrets.ftp_password }}
-          delete: "true"
-          #local_source_dir: "./" #/home/runner/work/repo1/repo1
-          dist_target_dir: "githubaction"
+#   DeployRec:
+#     name: Deploiement en Dev / R7 
+#     if: github.ref == 'refs/heads/dev'
+#     needs: [Build]
+#     runs-on: ubuntu-latest
+#     environment: 
+#       name: REC
+#       url: 'http://test.myapp.com'
+#     steps:
+#       - name: "REMOVE PROD File"
+#         run: |
+#           pwd
+#           ls -la
+#           rm -f prod.txt
+#       # - name: 📂 Sync files
+#       #   uses: SamKirkland/FTP-Deploy-Action@4.0.0
+#       #   with:
+#       #     server: ${{ secrets.ftp_server }}
+#       #     username: ${{ secrets.ftp_user }}
+#       #     password: ${{ secrets.ftp_password }}
+#       #     server-dir: githubaction/ 
+#       - name: 📂 Sync files 
+#         uses: kevinpainchaud/simple-ftp-deploy-action@v1.2.1
+#         with:
+#           ftp_host: ${{ secrets.ftp_server }}
+#           ftp_username: ${{ secrets.ftp_user }}
+#           ftp_password: ${{ secrets.ftp_password }}
+#           delete: "true"
+#           #local_source_dir: "./" #/home/runner/work/repo1/repo1
+#           dist_target_dir: "githubaction"
             
-  DeployProd:
-    name: Deploiement en Prod
-    #if: github.event.pull_request.merged == 'true'
-    if: github.ref == 'main' && github.event_name == 'pull_request' && github.event.action == 'closed'
-    needs: [Build]
-    runs-on: ubuntu-latest
-    environment: 
-      name: Prod
-      url: 'http://www.myapp.com'
-    steps:
-      - name: "ADD PROD File"
-        run: |
-          touch prod.txt
-          echo "prod file" > prod.txt
-      # - name: 📂 Sync files
-      #   uses: SamKirkland/FTP-Deploy-Action@4.0.0
-      #   with:
-      #     server: ${{ secrets.ftp_server }}
-      #     username: ${{ secrets.ftp_user }}
-      #     password: ${{ secrets.ftp_password }}
-      #     #local-dir: /githubaction/
+#   DeployProd:
+#     name: Deploiement en Prod
+#     #if: github.event.pull_request.merged == 'true'
+#     if: github.ref == 'main' && github.event_name == 'pull_request' && github.event.action == 'closed'
+#     needs: [Build]
+#     runs-on: ubuntu-latest
+#     environment: 
+#       name: Prod
+#       url: 'http://www.myapp.com'
+#     steps:
+#       - name: "ADD PROD File"
+#         run: |
+#           touch prod.txt
+#           echo "prod file" > prod.txt
+#       # - name: 📂 Sync files
+#       #   uses: SamKirkland/FTP-Deploy-Action@4.0.0
+#       #   with:
+#       #     server: ${{ secrets.ftp_server }}
+#       #     username: ${{ secrets.ftp_user }}
+#       #     password: ${{ secrets.ftp_password }}
+#       #     #local-dir: /githubaction/
     
