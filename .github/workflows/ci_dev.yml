@@ -9,7 +9,6 @@ jobs:
   DeployRec:
     name: Deploiement en Dev / R7 
     if: github.ref == 'refs/heads/dev'
-    needs: [Build]
     runs-on: ubuntu-latest
     environment: 
       name: REC
