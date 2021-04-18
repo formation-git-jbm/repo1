@@ -11,6 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: "Listing files"
+        run: |
+          pwd
+          ls -la
+
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
