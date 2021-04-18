@@ -12,10 +12,9 @@ jobs:
 
       - name: 'Creating artifact download directory'
         run: |
-          mkdir downloads
-          pwd
-          ls -la
-
+          mkdir /home/runner/work/downloads
+          ls -laR /home/runner/work/downloads
+          
       - uses: actions/checkout@v2
 
       - name: "Listing files"
@@ -27,13 +26,14 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: my-artifact
-          path: downloads
+          path: /home/runner/work/downloads
           retention-days: 1
 
       - name: 'Echo download path'
         run: |
           echo ${{steps.download.outputs.download-path}}
           ls -laR ${{steps.download.outputs.download-path}}
+          ls -laR /home/runner/work/downloads
   
   DeployRec:
     name: Deploiement en Dev / R7 
