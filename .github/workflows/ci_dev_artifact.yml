@@ -15,7 +15,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: my-artifact
-          path: ./
+          path: /home/runner/work/repo1/repo1/
           retention-days: 1
   
   DeployRec:
