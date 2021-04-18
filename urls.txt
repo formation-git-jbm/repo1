@@ -1,2 +1,14 @@
 # Conf self hosted
 https://jessicadeen.com/github-actions-self-hosted-runner/
+
+# secrets
+https://docs.github.com/en/actions/reference/encrypted-secrets
+
+# Github Actions: a deep dive into pull_request
+https://frontside.com/blog/2020-05-26-github-actions-pull_request/
+
+# ["28-github-actions"] (26 Part Series)
+https://dev.to/github/repository-automation-with-github-actions-5776
+
+# Events that trigger workflows
+https://docs.github.com/en/actions/reference/events-that-trigger-workflows#workflow_run

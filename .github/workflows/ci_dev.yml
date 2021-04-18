@@ -43,16 +43,12 @@ jobs:
 
       
       - name: 📂 Custom Sync files 
+        uses: appleboy/scp-action@master
         with:
-          FTP_HOST: ${{ secrets.ftp_server }}
-          FTP_USERNAME: ${{ secrets.ftp_user }}
-          FTP_PASSWORD: ${{ secrets.ftp_password }}
-          DELETE: "true"
-          LOCAL_SOURCE_DIR: "./" #/home/runner/work/repo1/repo1
-          DIST_TARGET_DIR: "githubaction"
-          EXCLUDE: "'^.git/' '^.github/'"
-        run: |
-          echo $INPUTS
-          chmod +x ./.github/scripts/synch.sh
-          ./.github/scripts/synch.sh
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          source: "*"
+          target: "home/ubuntu/GitHubAction/FTP"
    
