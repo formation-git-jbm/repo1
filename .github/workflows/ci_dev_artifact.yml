@@ -11,7 +11,10 @@ jobs:
     steps:
 
       - name: 'Creating artifact download directory'
-        run: mkdir downloads
+        run: |
+          mkdir downloads
+          pwd
+          ls -la
 
       - uses: actions/checkout@v2
 
