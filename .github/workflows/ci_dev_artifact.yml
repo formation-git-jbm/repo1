@@ -9,6 +9,10 @@ jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
+
+      - name: 'Creating artifact download directory'
+        run: mkdir downloads
+
       - uses: actions/checkout@v2
 
       - name: "Listing files"
@@ -20,8 +24,13 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: my-artifact
-          path: /home/runner/work/repo1/repo1/
+          path: downloads
           retention-days: 1
+
+      - name: 'Echo download path'
+        run: |
+          echo ${{steps.download.outputs.download-path}}
+          ls -laR ${{steps.download.outputs.download-path}}
   
   DeployRec:
     name: Deploiement en Dev / R7 
