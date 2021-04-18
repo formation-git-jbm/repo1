@@ -13,9 +13,9 @@ jobs:
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
-          with:
-            name: my-artifact
-            retention-days: 1
+        with:
+          name: my-artifact
+          retention-days: 1
   
   DeployRec:
     name: Deploiement en Dev / R7 
