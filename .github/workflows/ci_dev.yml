@@ -52,4 +52,5 @@ jobs:
           key: ${{ secrets.PERSONAL_SERVER_1_SSH_PRIVATE_KEY }}
           source: "*"
           target: "/home/ubuntu/GitHubAction/FTP"
+          rm: true
    
