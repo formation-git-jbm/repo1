@@ -51,5 +51,5 @@ jobs:
           port: ${{ secrets.ftp_port }}
           key: ${{ secrets.PERSONAL_SERVER_1_SSH_PRIVATE_KEY }}
           source: "*"
-          target: "home/ubuntu/GitHubAction/FTP"
+          target: "/home/ubuntu/GitHubAction/FTP"
    
