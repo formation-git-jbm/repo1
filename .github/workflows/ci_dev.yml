@@ -63,6 +63,7 @@ jobs:
           port: 21 # optional, default is: 21
           username: ${{ secrets.ftp_user }} # FTP username
           password: ${{ secrets.ftp_password }} # FTP password
+          local_folder: .
           remote_folder: githubaction # optional, remote path of your FTP server
           # cleanup: true # optional, remove existing files inside FTP remote folder
     
